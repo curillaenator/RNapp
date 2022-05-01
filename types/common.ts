@@ -6,9 +6,6 @@ export interface Flower {
   description: string;
   imageURL: string;
   likes: number;
-  price: number;
-}
-
-export interface BasketFlower extends Flower {
+  price: ReactText;
   quantity: number;
 }

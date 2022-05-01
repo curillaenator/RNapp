@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BasketFlower } from "../types/common";
+import { Flower } from "../types/common";
 
 type Modes = "light" | "dark";
 
@@ -13,7 +13,7 @@ export const useHeaderControls = () => {
   const [title, setTitle] = useState<string>(DEFAULT_TITLE);
   const [isMenu, setIsMenu] = useState<boolean>(false);
   const [mode, setMode] = useState<Modes>("light");
-  const [basket, setBasket] = useState<BasketFlower[] | null>(null);
+  const [basket, setBasket] = useState<Flower[] | null>(null);
 
   const controls = {
     handleMenu: () => setIsMenu((prev) => !prev),

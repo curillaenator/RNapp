@@ -1,11 +1,14 @@
 import React, { useState } from "react";
+import { NavigationContainer } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
-import { View } from "react-native";
+import { View, ScrollView } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 
 import { useHeaderControls } from "./hooks/useHeaderControls";
 
 import { Header } from "./components/header";
+import { Shop } from "./components/shop";
+// import { ShopStack } from "./components/Stack";
 
 import { palette } from "./styles/colors";
 import { styles } from "./styles/styles";
@@ -15,15 +18,19 @@ export default function App() {
   const { mode } = headerControls;
 
   return (
-    <View style={styles.container}>
-      <LinearGradient
-        colors={[palette.life[900], palette.neutral[800]]}
-        style={styles.background}
-      >
-        <Header {...headerControls} />
+    // <NavigationContainer>
+    <LinearGradient
+      colors={[palette.life[700], palette.neutral[800]]}
+      style={styles.container}
+    >
+      <Header {...headerControls} />
 
-        <StatusBar style="auto" />
-      </LinearGradient>
-    </View>
+      <ScrollView>
+        <Shop />
+      </ScrollView>
+
+      <StatusBar style="auto" />
+    </LinearGradient>
+    // </NavigationContainer>
   );
 }

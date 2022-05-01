@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useCallback } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { View, Text, TouchableOpacity } from "react-native";
 
@@ -10,6 +10,14 @@ import { palette } from "../../styles/colors";
 export const Dropdown: FC<DropdownProps> = (props) => {
   const { isOpen, list = [], handleTrigger } = props;
 
+  const handleItemPress = useCallback(
+    (pressFn?: () => void) => {
+      if (!!pressFn) pressFn();
+      if (!!handleTrigger) handleTrigger();
+    },
+    [handleTrigger]
+  );
+
   return (
     <View style={s.dropdown}>
       <TouchableOpacity style={s.trigger} onPress={handleTrigger}>
@@ -18,7 +26,7 @@ export const Dropdown: FC<DropdownProps> = (props) => {
           <Ionicons
             name="menu"
             size={40}
-            color={isOpen ? palette.life[500] : palette.neutral[100]}
+            color={isOpen ? palette.life[300] : palette.neutral[100]}
           />
         }
       </TouchableOpacity>
@@ -27,7 +35,11 @@ export const Dropdown: FC<DropdownProps> = (props) => {
         <View style={s.listFromRight}>
           {!!list.length &&
             list.map((item) => (
-              <TouchableOpacity key={item.id || item.title} style={s.listItem}>
+              <TouchableOpacity
+                key={item.id || item.title}
+                style={s.listItem}
+                onPress={() => handleItemPress(item.onPress)}
+              >
                 {item.icon && (
                   //@ts-expect-error
                   <Ionicons

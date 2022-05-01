@@ -1,10 +1,10 @@
-import { BasketFlower } from "../../types/common";
+import { Flower } from "../../types/common";
 
 export interface HeaderProps {
   title?: string;
   isMenu?: boolean;
   mode?: "light" | "dark";
-  basket?: BasketFlower[] | null;
+  basket?: Flower[] | null;
   controls: {
     handleMenu: () => void;
     handleMode: () => void;

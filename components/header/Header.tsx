@@ -23,7 +23,7 @@ export const Header: FC<HeaderProps> = (props) => {
           <Entypo
             name="flower"
             size={56}
-            color={palette.life[500]}
+            color={palette.life[300]}
             style={s.logoIcon}
           />
         }
@@ -31,7 +31,11 @@ export const Header: FC<HeaderProps> = (props) => {
         <Text style={s.logoText}>{title}</Text>
       </View>
 
-      <Dropdown list={MENU_LIST} isOpen={isMenu} handleTrigger={handleMenu} />
+      <Dropdown
+        list={MENU_LIST}
+        isOpen={isMenu || false}
+        handleTrigger={handleMenu}
+      />
     </View>
   );
 };
