@@ -20,14 +20,14 @@ export default function App() {
   return (
     // <NavigationContainer>
     <LinearGradient
-      colors={[palette.life[700], palette.neutral[800]]}
+      colors={[palette.violet[800], palette.neutral[800]]}
       style={styles.container}
     >
       <Header {...headerControls} />
 
-      <ScrollView>
-        <Shop />
-      </ScrollView>
+      {/* <ScrollView> */}
+      <Shop />
+      {/* </ScrollView> */}
 
       <StatusBar style="auto" />
     </LinearGradient>

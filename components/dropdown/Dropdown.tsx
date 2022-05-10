@@ -26,7 +26,7 @@ export const Dropdown: FC<DropdownProps> = (props) => {
           <Ionicons
             name="menu"
             size={40}
-            color={isOpen ? palette.life[300] : palette.neutral[100]}
+            color={isOpen ? palette.violet[300] : palette.neutral[100]}
           />
         }
       </TouchableOpacity>

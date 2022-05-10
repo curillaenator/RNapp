@@ -23,7 +23,7 @@ export const Header: FC<HeaderProps> = (props) => {
           <Entypo
             name="flower"
             size={56}
-            color={palette.life[300]}
+            color={palette.violet[300]}
             style={s.logoIcon}
           />
         }

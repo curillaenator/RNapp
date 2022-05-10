@@ -3,6 +3,7 @@ import { Flower } from "../types/common";
 
 interface ShopState {
   items: Flower[];
+  filtered: Flower[];
 }
 
 const flower: Flower = {
@@ -20,10 +21,19 @@ const flower: Flower = {
 const ITEMS_MOCK: Flower[] = [...new Array(10).fill(null)].map((_, i) => ({
   ...flower,
   id: i,
+  title: `Сhamomile_${i}`,
 }));
 
 const INITIAL_STATE: ShopState = {
   items: ITEMS_MOCK,
+  filtered: [],
 };
 
-export const shopStore = createStore<ShopState>(INITIAL_STATE);
+// Actions
+
+export const search = createEvent<Flower[]>();
+
+export const shopStore = createStore<ShopState>(INITIAL_STATE).on(
+  search,
+  (state, filtered) => ({ ...state, filtered })
+);
